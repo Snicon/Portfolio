@@ -19,7 +19,7 @@ const Navbar = () => {
                     )) }
                 </ul>
             </div>
-            <div className="flex justify-end mr-4 md:hidden">
+            <div className="flex justify-end mr-4 md:hidden shadow-zinc-800/5 ring-1 ring-white/10 backdrop-blur p-1 rounded-md">
                 <Menu>
                     <Menu.Button>
                         <img src={ menu }
