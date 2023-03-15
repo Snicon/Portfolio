@@ -31,31 +31,40 @@ const Foss = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-6">
                 { contributions.map((contribution, index) => (
-                <div
+                <a
                     key={ contribution.id }
-                    className="transition hover:cursor-pointer hover:bg-secondaryBgDark rounded-xl px-5 py-5"
+                    className="transition hover:cursor-pointer group hover:bg-secondaryBgDark rounded-xl px-5 py-5"
+                    href={`https://${ contribution.link }`}
+                    target="_blank"
                 >
-                    <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-0 bg-zinc-800 border border-zinc-700/50">
-                        <img src={ contribution.logo } alt="" className="h-8 w-8 rounded-full"/>
+                    <div className="flex justify-between">
+                        <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-0 bg-zinc-800 border border-zinc-700/50">
+                            <img src={ contribution.logo } alt="" className="h-8 w-8 rounded-full"/>
+                        </div>
+                        <div>
+                            <svg className="h-7 w-7 text-zinc-600 hidden group-hover:block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" ariaHidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
+                            </svg>
+                        </div>
                     </div>
                     <div className="flex gap-1 mt-4">
                         { contribution.tech.map((icon, index) => (
                             <img key={ icon } className="mt-2 w-6 h-6" src={ icon } alt=""/>
                         ))}
                     </div>
-                    <h3 className="text-zinc-100 font-poppins mt-2">
+                    <h3 className="text-zinc-100 group-hover:text-primaryDarker font-poppins mt-2">
                         { contribution.title }
                     </h3>
-                    <p className="mt-2 text-xs leading-5 text-zinc-400 font-poppins">
+                    <p className="mt-2 text-xs leading-5 text-zinc-400 group-hover:text-zinc-200 font-poppins">
                         { contribution.description }
                     </p>
                     <div className="flex mt-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mt-2 text-zinc-100 w-4 h-4">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
                         </svg>
-                        <a href={`https://${ contribution.link }`} className="text-zinc-100 font-poppins text-sm mt-1.5 ml-3 hover:text-primary">{ contribution.link }</a>
+                        <p className="text-zinc-100 font-poppins text-sm mt-1.5 ml-3 group-hover:text-primary">{ contribution.link }</p>
                     </div>
-                </div>
+                </a>
                 )) }
             </div>
         </div>
